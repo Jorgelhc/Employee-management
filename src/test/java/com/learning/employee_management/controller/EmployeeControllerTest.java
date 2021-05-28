@@ -90,7 +90,7 @@ public class EmployeeControllerTest {
 
         //given
         EmployeeDTO employeeDTO = EmployeeDTOBuilder.builder().build().toEmployeeDTO();
-
+        employeeDTO.setId(null);
         //when
         Mockito.when(employeeService.createEmployee(employeeDTO)).thenReturn(employeeDTO);
 
@@ -152,7 +152,7 @@ public class EmployeeControllerTest {
         EmployeeDTO employeeDTO = EmployeeDTOBuilder.builder().build().toEmployeeDTO();
         employeeDTO.setSalary(2000);
         employeeDTO.setRole(Role.DIRECTOR);
-
+        employeeDTO.setId(null);
 
         //when
         Mockito.when(employeeService.createEmployee(employeeDTO))
@@ -174,6 +174,7 @@ public class EmployeeControllerTest {
 
         EmployeeDTO employeeDTO = EmployeeDTOBuilder.builder().build().toEmployeeDTO();
         employeeDTO.setProfitShare(employeeDTO.getMaxProfitShare() + 1);
+        employeeDTO.setId(null);
 
         //when
         Mockito.when(employeeService.createEmployee(employeeDTO))

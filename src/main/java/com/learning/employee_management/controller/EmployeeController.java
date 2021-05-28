@@ -4,6 +4,7 @@ import com.learning.employee_management.employeeDTO.EmployeeChangeableValues;
 import com.learning.employee_management.employeeDTO.EmployeeDTO;
 import com.learning.employee_management.exception.*;
 import com.learning.employee_management.services.EmployeeService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-
 @RequestMapping(value = "/api/v1/employee")
 public class EmployeeController {
 
@@ -26,7 +26,7 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EmployeeDTO createEmployee(@RequestBody @Valid EmployeeDTO employeeDTO) throws EmployeeAlreadyExistsException, SalaryIncompatibleWithRoleException, ProfitShareExceedsMaxException {
+    public EmployeeDTO createEmployee(@RequestBody   @Valid EmployeeDTO employeeDTO) throws EmployeeAlreadyExistsException, SalaryIncompatibleWithRoleException, ProfitShareExceedsMaxException {
         return service.createEmployee(employeeDTO);
     }
 
